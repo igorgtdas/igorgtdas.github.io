@@ -1,0 +1,21 @@
+# Fotos e imagens pessoais — não vão para o repositório (use URLs no data.js)
+foto_pessoal_para perfil.png
+PROJETO 1 - Captura de tela do modelo deployed.png
+Projeto_2_EDA.JPG
+Projeto_3_Agent_Senhor_do_Tempo.jpg
+projeto_4_agen_poker.JPG
+
+# Dados sensíveis / uso local
+CURRICULO*
+*.pdf
+!docs/*.pdf
+*.zip
+rebuilt.*
+
+# Scripts locais (opcional — remova se quiser versionar)
+analisar_zip.py
+recuperar_zip.py
+
+# Sistema
+.DS_Store
+Thumbs.db

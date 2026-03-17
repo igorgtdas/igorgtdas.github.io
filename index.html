@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Igor Gonçalves — Cientista de Dados & IA</title>
+  <meta name="description" content="Portfólio de Igor Gonçalves. Cientista de Dados, Machine Learning e Engenharia de Confiabilidade aplicada à aviação.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="#hero" class="nav-logo">IG</a>
+      <ul class="nav-links">
+        <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+        <li><a href="#projetos" data-i18n="nav.projects">Projetos</a></li>
+        <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
+      </ul>
+      <div class="nav-right">
+        <button type="button" class="lang-toggle" aria-label="Traduzir para inglês" title="English">EN</button>
+        <button class="nav-toggle" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-avatar">
+          <img id="hero-photo" src="" alt="Igor Gonçalves" width="160" height="160">
+        </div>
+        <h1 class="hero-title">Igor Gonçalves</h1>
+        <p class="hero-tagline" data-i18n="hero.tagline">Cientista de Dados · Especialista em IA & Machine Learning</p>
+        <p class="hero-location" data-i18n="hero.location">São Paulo, Brasil</p>
+        <a href="#projetos" class="hero-cta" data-i18n="hero.cta">Ver projetos</a>
+      </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section.about">Sobre</h2>
+        <div class="sobre-content">
+          <p class="sobre-lead" data-i18n="about.lead">
+            Cientista de Dados com experiência em Inteligência Artificial, Machine Learning e Engenharia de Confiabilidade aplicada à aviação.
+          </p>
+          <p data-i18n="about.p2">
+            Especialista no desenvolvimento de modelos preditivos, NLP e agentes baseados em LLMs para automação e suporte à decisão estratégica. Atuação focada em geração de eficiência operacional, redução de reincidências técnicas e otimização de recursos.
+          </p>
+          <p data-i18n="about.p3">
+            Atualmente <strong>Data Scientist na Future Secure AI</strong>, desenvolvendo soluções com IA generativa, LangChain, Flowise e n8n. Anteriormente <strong>Analista de Engenharia de Confiabilidade</strong> na Gol Linhas Aéreas (6 anos), com foco em planejamento de manutenção, modelagem preditiva e análise de confiabilidade (Weibull, séries temporais, clusterização).
+          </p>
+          <p data-i18n="about.p4">
+            Formado em <strong>Automação Industrial (IFSP)</strong> e <strong>MBA em Data Science e Analytics (USP/Esalq)</strong>, com monografia em previsão de demanda de mão de obra via Redes Neurais.
+          </p>
+          <div class="sobre-tags">
+            <span>Python</span>
+            <span>TensorFlow</span>
+            <span>Machine Learning</span>
+            <span>NLP</span>
+            <span>LLMs</span>
+            <span>LangChain</span>
+            <span>Flowise</span>
+            <span>Power BI</span>
+            <span>SQL</span>
+            <span>Reliability Engineering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section.projects">Projetos</h2>
+        <div class="projetos-grid" id="projetos-grid">
+          <!-- Projetos renderizados por script.js a partir de data.js -->
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contato">
+      <div class="container">
+        <h2 class="section-title" data-i18n="section.contact">Contato</h2>
+        <div class="contato-links">
+          <a href="https://github.com/igorgtdas" target="_blank" rel="noopener" class="contato-item">
+            <span class="contato-icon">GitHub</span>
+            <span>github.com/igorgtdas</span>
+          </a>
+          <a href="https://www.linkedin.com/in/igorgtdas" target="_blank" rel="noopener" class="contato-item">
+            <span class="contato-icon">LinkedIn</span>
+            <span>in/igorgtdas</span>
+          </a>
+          <a href="mailto:igor_goncalvestomaz@hotmail.com" class="contato-item">
+            <span class="contato-icon">E-mail</span>
+            <span>igor_goncalvestomaz@hotmail.com</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer">Igor Gonçalves · Cientista de Dados & IA</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
