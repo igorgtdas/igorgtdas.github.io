@@ -89,7 +89,7 @@ var PORTFOLIO_DATA = {
     },
     {
       id: 'pun-time-agent-langchain',
-      image: 'Projeto_3_Agent_Senhor_do_Tempo.jpg',
+      image: 'projeto_3_Agent Senhor do Tempo.JPG',
       alt: { pt: 'Agent Senhor do Tempo — Sistema multiagente LangChain', en: 'Time & Weather Agent — LangChain multi-agent system' },
       title: {
         pt: 'Agent Senhor do Tempo — Hora, clima e out-of-scope',
