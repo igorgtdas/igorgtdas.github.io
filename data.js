@@ -55,6 +55,22 @@ var PORTFOLIO_DATA = {
    */
   projects: [
     {
+      id: 'pun-time-agent-langchain',
+      image: 'projeto_3_Agent Senhor do Tempo.JPG',
+      alt: { pt: 'Agent Senhor do Tempo — Sistema multiagente LangChain', en: 'Time & Weather Agent — LangChain multi-agent system' },
+      title: {
+        pt: 'Agent Senhor do Tempo — Hora, clima e out-of-scope',
+        en: 'Time & Weather Agent — Clock, weather and out-of-scope'
+      },
+      description: {
+        pt: 'Sistema multiagente com LangChain e LangGraph, usando um framework simples próprio para criação de sistemas multiagente. Inclui Router Agent; tools com consumo de API pública de clima gratuita; modelo OpenAI GPT-4.1-mini. Para deploy foi implementada uma API com FastAPI para facilitar integração com outros sistemas ou frontends. Front de chat feito com Cursor para testes de usuário. Três agentes: um para informar a hora com trocadilhos, outro para o clima de qualquer cidade do mundo (também com trocadilhos) e um Out of Scope acionado quando a pergunta foge do foco do assistente.',
+        en: 'Multi-agent system with LangChain and LangGraph, using a simple custom framework for building multi-agent systems. Includes Router Agent; tools consuming a free public weather API; OpenAI GPT-4.1-mini. For deployment, a FastAPI API was implemented to facilitate integration with other systems or frontends. Chat front-end built with Cursor for user testing. Three agents: one to tell the time with puns, one for weather in any city worldwide (also with puns), and an Out of Scope agent triggered when the question is outside the assistant\'s focus.'
+      },
+      lang: 'Python',
+      stack: { pt: 'LangChain · LangGraph · OpenAI 4.1-mini · FastAPI · Cursor', en: 'LangChain · LangGraph · OpenAI 4.1-mini · FastAPI · Cursor' },
+      url: 'https://github.com/igorgtdas/pun-time-agent-langchain'
+    },
+    {
       id: 'predict-man-hour-maint-uns',
       image: 'PROJETO 1 - Captura de tela do modelo deployed.png',
       alt: { pt: 'Previsão de HH — Manutenção Boeing 737NG', en: 'HH Forecast — Boeing 737NG Maintenance' },
@@ -86,22 +102,6 @@ var PORTFOLIO_DATA = {
       lang: 'Python',
       stack: { pt: 'Pandas · Análise exploratória', en: 'Pandas · Exploratory analysis' },
       url: 'https://github.com/igorgtdas/eda-sigma-interval'
-    },
-    {
-      id: 'pun-time-agent-langchain',
-      image: 'projeto_3_Agent Senhor do Tempo.JPG',
-      alt: { pt: 'Agent Senhor do Tempo — Sistema multiagente LangChain', en: 'Time & Weather Agent — LangChain multi-agent system' },
-      title: {
-        pt: 'Agent Senhor do Tempo — Hora, clima e out-of-scope',
-        en: 'Time & Weather Agent — Clock, weather and out-of-scope'
-      },
-      description: {
-        pt: 'Sistema multiagente com LangChain e LangGraph, usando um framework simples próprio para criação de sistemas multiagente. Inclui Router Agent; tools com consumo de API pública de clima gratuita; modelo OpenAI GPT-4.1-mini. Para deploy foi implementada uma API com FastAPI para facilitar integração com outros sistemas ou frontends. Front de chat feito com Cursor para testes de usuário. Três agentes: um para informar a hora com trocadilhos, outro para o clima de qualquer cidade do mundo (também com trocadilhos) e um Out of Scope acionado quando a pergunta foge do foco do assistente.',
-        en: 'Multi-agent system with LangChain and LangGraph, using a simple custom framework for building multi-agent systems. Includes Router Agent; tools consuming a free public weather API; OpenAI GPT-4.1-mini. For deployment, a FastAPI API was implemented to facilitate integration with other systems or frontends. Chat front-end built with Cursor for user testing. Three agents: one to tell the time with puns, one for weather in any city worldwide (also with puns), and an Out of Scope agent triggered when the question is outside the assistant\'s focus.'
-      },
-      lang: 'Python',
-      stack: { pt: 'LangChain · LangGraph · OpenAI 4.1-mini · FastAPI · Cursor', en: 'LangChain · LangGraph · OpenAI 4.1-mini · FastAPI · Cursor' },
-      url: 'https://github.com/igorgtdas/pun-time-agent-langchain'
     },
     {
       id: 'ai-poker-player-llm',
