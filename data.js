@@ -72,7 +72,7 @@ var PORTFOLIO_DATA = {
     },
     {
       id: 'predict-man-hour-maint-uns',
-      image: 'PROJETO 1 - Captura de tela do modelo deployed.png',
+      image: ['PROJETO 1 - Captura de tela do modelo deployed.png', 'projeto1-figuras-3-4-matriz-dispersao.png'],
       alt: { pt: 'Previsão de HH — Manutenção Boeing 737NG', en: 'HH Forecast — Boeing 737NG Maintenance' },
       title: {
         pt: 'Previsão de HH — Manutenção não programada 737NG',
@@ -105,7 +105,7 @@ var PORTFOLIO_DATA = {
     },
     {
       id: 'ai-poker-player-llm',
-      image: 'projeto_4_agen_poker.JPG',
+      image: ['projeto_4_agen_poker.JPG', 'projeto4-resultado-recomendacao.png'],
       alt: { pt: 'Agent Poker — Assistente Texas Hold\'em com LLM', en: 'AI Poker Player — Texas Hold\'em assistant with LLM' },
       title: {
         pt: 'Agent Poker — Coach de Texas Hold\'em com visão',

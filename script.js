@@ -58,10 +58,17 @@
       if (p.pdf) {
         linksHtml += ' <a href="' + p.pdf + '" download class="projeto-link projeto-link-pdf">' + downloadPdf + '</a>';
       }
+      var images = Array.isArray(p.image) ? p.image : [p.image || ''];
+      var isSlideshow = images.length > 1;
+      var imageClass = isSlideshow ? 'projeto-image projeto-slideshow' : 'projeto-image';
+      var imgsHtml = images.map(function (src, i) {
+        var vis = isSlideshow && i === 0 ? ' slide-visible' : '';
+        return '<img src="' + src + '" alt="' + alt.replace(/"/g, '&quot;') + '"' + (vis ? ' class="slide-visible"' : '') + '>';
+      }).join('');
       return (
         '<article class="projeto-card" data-repo="' + (p.id || '') + '">' +
-          '<div class="projeto-image">' +
-            '<img src="' + (p.image || '') + '" alt="' + alt.replace(/"/g, '&quot;') + '">' +
+          '<div class="' + imageClass + '" data-slide="0" data-total="' + images.length + '">' +
+            imgsHtml +
           '</div>' +
           '<div class="projeto-body">' +
             '<h3>' + title.replace(/</g, '&lt;') + '</h3>' +
@@ -75,6 +82,23 @@
         '</article>'
       );
     }).join('');
+    startSlideshows();
+  }
+
+  function startSlideshows() {
+    var slideshows = document.querySelectorAll('.projeto-slideshow');
+    slideshows.forEach(function (container) {
+      var imgs = container.querySelectorAll('img');
+      var total = imgs.length;
+      if (total < 2) return;
+      setInterval(function () {
+        var current = parseInt(container.getAttribute('data-slide'), 10) || 0;
+        var next = (current + 1) % total;
+        imgs[current].classList.remove('slide-visible');
+        imgs[next].classList.add('slide-visible');
+        container.setAttribute('data-slide', String(next));
+      }, 4000);
+    });
   }
 
   function setLang(lang) {
