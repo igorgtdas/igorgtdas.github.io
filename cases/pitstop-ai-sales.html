@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-lang="pt" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PitStop AI Sales · Case · Igor Gonçalves</title>
+  <meta name="title-pt" content="PitStop AI Sales · Case · Igor Gonçalves">
+  <meta name="title-en" content="PitStop AI Sales · Case study · Igor Gonçalves">
+  <meta name="description" content="Case: agente de vendas com IA em FastAPI, LangChain e LangGraph, com pipeline RAG e infraestrutura AWS em Terraform.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2322d3ee'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='700' font-size='13' text-anchor='middle' fill='%23061015'%3EIG%3C/text%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var d = document.documentElement, l, t;
+      try { l = localStorage.getItem('portfolio-lang'); t = localStorage.getItem('portfolio-theme'); } catch (e) {}
+      if (l === 'en') d.setAttribute('data-lang', 'en');
+      if (t === 'light') d.setAttribute('data-theme', 'light');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo"><span class="logo-mark">IG</span> Igor Gonçalves</a>
+      <ul class="nav-links">
+        <li><a href="pitstop-ai-sales.html">AI Sales</a></li>
+        <li><a href="pitstop-connect.html">Connect</a></li>
+        <li><a href="pitstop-notify.html">Notify</a></li>
+        <li><a href="../index.html#contato"><span class="l-pt">Contato</span><span class="l-en">Contact</span></a></li>
+      </ul>
+      <div class="nav-right">
+        <button type="button" class="icon-btn lang-toggle" aria-label="Switch to English">EN</button>
+        <button type="button" class="icon-btn theme-toggle" aria-label="Ativar tema claro">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <a href="../index.html#projetos" class="back-link">← <span class="l-pt">Voltar aos projetos</span><span class="l-en">Back to projects</span></a>
+        <div class="chip-row">
+          <span class="tag-nda"><span class="l-pt">Projeto profissional · código sob NDA</span><span class="l-en">Professional project · code under NDA</span></span>
+        </div>
+        <h1 class="case-title">PitStop <span class="gradient-text">AI Sales</span></h1>
+        <p class="case-lead">
+          <span class="l-pt">Um agente de vendas com IA que atende clientes de uma rede de autopeças e oficinas pelo WhatsApp. Ele entende o que o cliente precisa, consulta estoque e preço, cadastra o cliente e entrega a conversa para o vendedor certo quando é hora de fechar.</span>
+          <span class="l-en">An AI sales agent that serves customers of an auto-parts and repair network over WhatsApp. It figures out what the customer needs, checks stock and price, registers the customer and hands the conversation to the right salesperson when it's time to close.</span>
+        </p>
+        <dl class="case-meta">
+          <div><dt><span class="l-pt">Papel</span><span class="l-en">Role</span></dt><dd><span class="l-pt">Backend, IA e infra</span><span class="l-en">Backend, AI &amp; infra</span></dd></div>
+          <div><dt><span class="l-pt">Tipo</span><span class="l-en">Type</span></dt><dd><span class="l-pt">Agente LLM em produção</span><span class="l-en">Production LLM agent</span></dd></div>
+          <div><dt><span class="l-pt">Escala do código</span><span class="l-en">Codebase</span></dt><dd><span class="l-pt">~45k linhas · 250+ testes</span><span class="l-en">~45k lines · 250+ tests</span></dd></div>
+          <div><dt>Cloud</dt><dd>AWS · Terraform</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="container case-layout">
+      <aside class="case-toc">
+        <p><span class="l-pt">Neste case</span><span class="l-en">On this page</span></p>
+        <ol>
+          <li><a href="#problema"><span class="l-pt">Problema</span><span class="l-en">Problem</span></a></li>
+          <li><a href="#agentes"><span class="l-pt">Agentes</span><span class="l-en">Agents</span></a></li>
+          <li><a href="#api">API FastAPI</a></li>
+          <li><a href="#rag"><span class="l-pt">Pipeline RAG</span><span class="l-en">RAG pipeline</span></a></li>
+          <li><a href="#infra"><span class="l-pt">Infra na nuvem</span><span class="l-en">Cloud infra</span></a></li>
+          <li><a href="#qualidade"><span class="l-pt">Qualidade</span><span class="l-en">Quality</span></a></li>
+          <li><a href="#stack">Stack</a></li>
+        </ol>
+      </aside>
+
+      <div class="case-content">
+        <section id="problema" class="case-section">
+          <h2><span class="num">01</span><span class="l-pt">O problema</span><span class="l-en">The problem</span></h2>
+          <p>
+            <span class="l-pt">O balcão de autopeças recebe pelo WhatsApp perguntas como "tem pastilha de freio pro meu carro?" o dia inteiro, inclusive fora do horário. Os vendedores perdiam tempo com triagem e cadastro, e o cliente esperava.</span>
+            <span class="l-en">The parts counter gets WhatsApp questions like "do you have brake pads for my car?" all day, including after hours. Salespeople lost time on triage and data entry, and customers waited.</span>
+          </p>
+          <p>
+            <span class="l-pt">O objetivo era um agente que resolvesse a parte repetitiva (identificar o cliente, entender o pedido, consultar estoque e preço, coletar dados) e passasse para um humano só quando valesse a pena, com o contexto já organizado.</span>
+            <span class="l-en">The goal was an agent that handles the repetitive part (identify the customer, understand the request, check stock and price, collect data) and passes to a human only when it's worth it, with the context already organized.</span>
+          </p>
+        </section>
+
+        <section id="agentes" class="case-section">
+          <h2><span class="num">02</span><span class="l-pt">Arquitetura de agentes</span><span class="l-en">Agent architecture</span></h2>
+          <p>
+            <span class="l-pt">Em vez de um único prompt gigante, o atendimento é um <strong>loop agentivo</strong> orquestrado com LangGraph: o agente planeja a próxima ação, executa ferramentas, valida o resultado e só então responde. Se a validação reprova, o loop volta para o planejamento.</span>
+            <span class="l-en">Instead of one giant prompt, the conversation runs as an <strong>agentic loop</strong> orchestrated with LangGraph: the agent plans the next action, runs tools, validates the result and only then replies. If validation fails, the loop goes back to planning.</span>
+          </p>
+          <figure class="figure">
+            <img src="../assets/diagrams/ai-sales-agent.svg" alt="Fluxo do agente: WhatsApp, webhook, guardrails, loop de planejar, executar, validar e responder, com ferramentas, memória e base de conhecimento">
+            <figcaption><span class="l-pt">Visão simplificada do fluxo de uma mensagem.</span><span class="l-en">Simplified view of how one message flows.</span></figcaption>
+          </figure>
+          <div class="card-grid">
+            <div class="info-card">
+              <h4><span class="ic">01</span><span class="l-pt">Loop agentivo</span><span class="l-en">Agentic loop</span></h4>
+              <p><span class="l-pt">Planejar → executar → validar → responder. A decisão do que fazer vem de uma saída estruturada, e a execução das ações é código determinístico, o que deixa o comportamento previsível e testável.</span><span class="l-en">Plan → execute → validate → respond. What to do comes from structured output, and actions run as deterministic code, which keeps behavior predictable and testable.</span></p>
+            </div>
+            <div class="info-card">
+              <h4><span class="ic">02</span><span class="l-pt">Especialistas por etapa</span><span class="l-en">Stage specialists</span></h4>
+              <p><span class="l-pt">Cada fase da conversa (triagem, descoberta de produto, cotação, handoff) tem instruções e regras próprias. Uma máquina de estados controla em que etapa o cliente está.</span><span class="l-en">Each conversation phase (triage, product discovery, quote, handoff) has its own instructions and rules. A state machine tracks which stage the customer is in.</span></p>
+            </div>
+            <div class="info-card">
+              <h4><span class="ic">03</span><span class="l-pt">Camadas de validação</span><span class="l-en">Validation layers</span></h4>
+              <p><span class="l-pt">Antes de responder, a mensagem passa por checagens de segurança, de escopo e de consistência. Isso barra prompt injection, assuntos fora do tema e respostas que contradizem os dados.</span><span class="l-en">Before replying, the message goes through safety, scope and consistency checks. That blocks prompt injection, off-topic requests and replies that contradict the data.</span></p>
+            </div>
+            <div class="info-card">
+              <h4><span class="ic">04</span><span class="l-pt">Memória e handoff</span><span class="l-en">Memory &amp; handoff</span></h4>
+              <p><span class="l-pt">Memória de sessão em Redis por cliente e histórico completo no banco. Quando um vendedor assume, o agente para de responder e entrega um resumo da conversa.</span><span class="l-en">Per-customer session memory in Redis and full history in the database. When a salesperson takes over, the agent stops replying and hands over a conversation summary.</span></p>
+            </div>
+          </div>
+          <h3><span class="l-pt">Ferramentas do agente</span><span class="l-en">Agent tools</span></h3>
+          <div class="chip-row">
+            <span class="chip"><span class="l-pt">Estoque e preço</span><span class="l-en">Stock &amp; price</span></span>
+            <span class="chip"><span class="l-pt">Cadastro no CRM</span><span class="l-en">CRM registration</span></span>
+            <span class="chip"><span class="l-pt">Busca na base de conhecimento</span><span class="l-en">Knowledge-base search</span></span>
+            <span class="chip"><span class="l-pt">CEP e geolocalização</span><span class="l-en">Postal code &amp; geolocation</span></span>
+            <span class="chip"><span class="l-pt">Transcrição de áudio</span><span class="l-en">Audio transcription</span></span>
+            <span class="chip"><span class="l-pt">Leitura de imagem</span><span class="l-en">Image understanding</span></span>
+            <span class="chip"><span class="l-pt">Roteamento para vendedor</span><span class="l-en">Salesperson routing</span></span>
+          </div>
+        </section>
+
+        <section id="api" class="case-section">
+          <h2><span class="num">03</span><span class="l-pt">API em FastAPI</span><span class="l-en">FastAPI service</span></h2>
+          <p>
+            <span class="l-pt">Todo o sistema é exposto como uma API REST em FastAPI, multi-tenant, com autenticação JWT e papéis de acesso. Além do webhook que recebe as mensagens, a API gerencia o que o agente sabe e como ele se comporta.</span>
+            <span class="l-en">The whole system is a multi-tenant REST API in FastAPI, with JWT auth and access roles. Besides the webhook that receives messages, the API manages what the agent knows and how it behaves.</span>
+          </p>
+          <div class="card-grid three">
+            <div class="info-card"><h4><span class="ic">↳</span>Webhook</h4><p><span class="l-pt">Recebe eventos do WhatsApp com verificação de assinatura, idempotência e lock por conversa.</span><span class="l-en">Receives WhatsApp events with signature checks, idempotency and per-conversation locks.</span></p></div>
+            <div class="info-card"><h4><span class="ic">RAG</span><span class="l-pt">Coleções</span><span class="l-en">Collections</span></h4><p><span class="l-pt">Endpoints para criar coleções, ingerir texto e PDF e fazer busca semântica.</span><span class="l-en">Endpoints to create collections, ingest text and PDFs, and run semantic search.</span></p></div>
+            <div class="info-card"><h4><span class="ic">⚙</span><span class="l-pt">Configuração</span><span class="l-en">Configuration</span></h4><p><span class="l-pt">Catálogo, produtos, lojas, vendedores e prompts por cliente, editáveis sem deploy.</span><span class="l-en">Catalog, products, stores, salespeople and per-tenant prompts, editable without a deploy.</span></p></div>
+          </div>
+        </section>
+
+        <section id="rag" class="case-section">
+          <h2><span class="num">04</span><span class="l-pt">Pipeline de RAG</span><span class="l-en">RAG pipeline</span></h2>
+          <p>
+            <span class="l-pt">O agente responde com base em documentos da empresa (catálogos, políticas, fichas técnicas), não só no que o modelo "acha". O pipeline roda dentro da própria API:</span>
+            <span class="l-en">The agent answers from company documents (catalogs, policies, spec sheets), not just from what the model "thinks". The pipeline runs inside the API itself:</span>
+          </p>
+          <ol class="steps">
+            <li><div><b><span class="l-pt">Ingestão</span><span class="l-en">Ingestion</span></b><span><span class="l-pt">Texto ou PDF via endpoint. PDFs escaneados passam por OCR antes.</span><span class="l-en">Text or PDF through an endpoint. Scanned PDFs go through OCR first.</span></span></div></li>
+            <li><div><b>Chunking</b><span><span class="l-pt">Janelas com sobreposição configuráveis por coleção, e deduplicação por hash para não indexar o mesmo conteúdo duas vezes.</span><span class="l-en">Overlapping windows configurable per collection, plus hash dedup so the same content is never indexed twice.</span></span></div></li>
+            <li><div><b>Embeddings</b><span><span class="l-pt">Modelo de embeddings open-source rodando localmente: sem custo por chamada e sem enviar documentos para fora.</span><span class="l-en">An open-source embedding model running locally: no per-call cost and documents never leave.</span></span></div></li>
+            <li><div><b><span class="l-pt">Armazenamento</span><span class="l-en">Storage</span></b><span><span class="l-pt">Vetores no próprio Postgres com pgvector, separados por cliente (multi-tenant).</span><span class="l-en">Vectors in Postgres itself with pgvector, isolated per tenant.</span></span></div></li>
+            <li><div><b><span class="l-pt">Busca</span><span class="l-en">Retrieval</span></b><span><span class="l-pt">Similaridade de cosseno com top-k, exposta como ferramenta para o agente.</span><span class="l-en">Cosine similarity with top-k, exposed to the agent as a tool.</span></span></div></li>
+          </ol>
+        </section>
+
+        <section id="infra" class="case-section">
+          <h2><span class="num">05</span><span class="l-pt">Infraestrutura na nuvem</span><span class="l-en">Cloud infrastructure</span></h2>
+          <p>
+            <span class="l-pt">Tudo roda na AWS e é descrito em Terraform, com ambientes de desenvolvimento e produção separados. A ideia: o mínimo de servidor para cuidar, o mínimo exposto à internet e custo baixo.</span>
+            <span class="l-en">Everything runs on AWS and is described in Terraform, with separate dev and prod environments. The idea: as few servers to babysit as possible, as little exposed to the internet as possible, and low cost.</span>
+          </p>
+          <figure class="figure">
+            <img src="../assets/diagrams/ai-sales-infra.svg" alt="Infraestrutura AWS: load balancer público, container ECS Fargate em subnet privada, Redis, Postgres com pgvector, segredos, logs, ECR e Terraform">
+            <figcaption><span class="l-pt">Caminho de uma mensagem do WhatsApp até o container, e o que dá suporte a ele.</span><span class="l-en">How a WhatsApp message reaches the container, and what supports it.</span></figcaption>
+          </figure>
+          <div class="table-wrap">
+            <table class="infra">
+              <thead><tr><th><span class="l-pt">Peça</span><span class="l-en">Piece</span></th><th><span class="l-pt">O que faz</span><span class="l-en">What it does</span></th><th><span class="l-pt">Por que essa escolha</span><span class="l-en">Why this choice</span></th></tr></thead>
+              <tbody>
+                <tr><td>ECS Fargate</td><td><span class="l-pt">Roda a API em container Docker</span><span class="l-en">Runs the API as a Docker container</span></td><td class="why"><span class="l-pt">Sem servidor para manter ou atualizar; escala por número de tarefas.</span><span class="l-en">No server to patch or maintain; scales by task count.</span></td></tr>
+                <tr><td>Load balancer (ALB)</td><td><span class="l-pt">Recebe o webhook e faz health check</span><span class="l-en">Receives the webhook and runs health checks</span></td><td class="why"><span class="l-pt">Só o balanceador fica público; a aplicação fica em subnet privada, sem IP público.</span><span class="l-en">Only the balancer is public; the app sits in a private subnet with no public IP.</span></td></tr>
+                <tr><td>RDS Postgres + pgvector</td><td><span class="l-pt">Dados de negócio e vetores do RAG</span><span class="l-en">Business data and RAG vectors</span></td><td class="why"><span class="l-pt">Um banco só para dados e vetores: menos peças, menos custo, backups juntos.</span><span class="l-en">One database for data and vectors: fewer parts, lower cost, shared backups.</span></td></tr>
+                <tr><td>ElastiCache Redis</td><td><span class="l-pt">Sessão, filas, locks e rate limit</span><span class="l-en">Sessions, queues, locks and rate limiting</span></td><td class="why"><span class="l-pt">Estado rápido e compartilhado entre réplicas, evitando respostas duplicadas.</span><span class="l-en">Fast state shared across replicas, preventing duplicate replies.</span></td></tr>
+                <tr><td>SSM · Secrets Manager</td><td><span class="l-pt">Guarda chaves e credenciais</span><span class="l-en">Stores keys and credentials</span></td><td class="why"><span class="l-pt">Nenhum segredo no código ou na imagem; injetados no container em tempo de execução.</span><span class="l-en">No secrets in code or images; injected into the container at runtime.</span></td></tr>
+                <tr><td>ECR</td><td><span class="l-pt">Registro das imagens Docker</span><span class="l-en">Docker image registry</span></td><td class="why"><span class="l-pt">Tags imutáveis tornam o rollback confiável: cada versão aponta sempre para a mesma imagem.</span><span class="l-en">Immutable tags make rollback reliable: each version always points to the same image.</span></td></tr>
+                <tr><td>CloudWatch</td><td><span class="l-pt">Logs centralizados</span><span class="l-en">Centralized logs</span></td><td class="why"><span class="l-pt">Retenção curta no dev e maior em produção, para equilibrar custo e investigação.</span><span class="l-en">Short retention in dev and longer in prod, balancing cost and debugging.</span></td></tr>
+                <tr><td><span class="l-pt">Escala agendada</span><span class="l-en">Scheduled scaling</span></td><td><span class="l-pt">Desliga o dev fora do horário comercial</span><span class="l-en">Turns dev off outside business hours</span></td><td class="why"><span class="l-pt">Ambiente de testes não precisa rodar de madrugada: corte direto de custo.</span><span class="l-en">A test environment doesn't need to run overnight: a direct cost cut.</span></td></tr>
+                <tr><td>Terraform</td><td><span class="l-pt">Descreve toda a infra como código</span><span class="l-en">Describes all infra as code</span></td><td class="why"><span class="l-pt">Infra versionada, revisável e reproduzível; estados separados para dev e produção.</span><span class="l-en">Versioned, reviewable, reproducible infra; separate state for dev and prod.</span></td></tr>
+                <tr><td>GitHub Actions</td><td><span class="l-pt">Build, push e deploy</span><span class="l-en">Build, push and deploy</span></td><td class="why"><span class="l-pt">Cada merge gera uma imagem nova e atualiza o serviço sem passo manual.</span><span class="l-en">Every merge builds a new image and updates the service with no manual step.</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="qualidade" class="case-section">
+          <h2><span class="num">06</span><span class="l-pt">Qualidade e observabilidade</span><span class="l-en">Quality &amp; observability</span></h2>
+          <div class="card-grid three">
+            <div class="info-card"><h4><span class="ic">✓</span><span class="l-pt">250+ testes</span><span class="l-en">250+ tests</span></h4><p><span class="l-pt">pytest cobrindo fluxo de conversa, RAG, roteamento, handoff, segurança e autenticação.</span><span class="l-en">pytest covering conversation flow, RAG, routing, handoff, security and auth.</span></p></div>
+            <div class="info-card"><h4><span class="ic">◎</span>Tracing</h4><p><span class="l-pt">Cada passo do agente e cada ferramenta é rastreado no LangSmith, o que facilita entender por que ele respondeu o que respondeu.</span><span class="l-en">Every agent step and tool call is traced in LangSmith, so it's easy to see why it said what it said.</span></p></div>
+            <div class="info-card"><h4><span class="ic">★</span><span class="l-pt">Avaliação</span><span class="l-en">Evaluation</span></h4><p><span class="l-pt">Scripts de avaliação de qualidade do agente rodando sobre conversas de referência.</span><span class="l-en">Agent quality evaluation scripts that run on reference conversations.</span></p></div>
+          </div>
+        </section>
+
+        <section id="stack" class="case-section">
+          <h2><span class="num">07</span>Stack</h2>
+          <div class="chip-row">
+            <span class="chip">Python 3.12</span><span class="chip">FastAPI</span><span class="chip">Pydantic</span><span class="chip">LangChain</span>
+            <span class="chip">LangGraph</span><span class="chip">OpenAI</span><span class="chip">sentence-transformers</span><span class="chip">PostgreSQL</span>
+            <span class="chip">pgvector</span><span class="chip">SQLAlchemy</span><span class="chip">Redis</span><span class="chip">LangSmith</span>
+            <span class="chip">pytest</span><span class="chip">Docker</span><span class="chip">AWS ECS Fargate</span><span class="chip">RDS</span>
+            <span class="chip">ElastiCache</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span>
+          </div>
+          <div class="callout">
+            <span class="l-pt">Nomes, marcas e dados foram alterados. O projeto real é de outro segmento; o tema de autopeças é só para ilustrar.</span>
+            <span class="l-en">Names, brands and data were changed. The real project is in a different industry; the auto-parts theme is only for illustration.</span>
+          </div>
+        </section>
+
+        <a class="next-case" href="pitstop-connect.html">
+          <div><small><span class="l-pt">Próximo case</span><span class="l-en">Next case</span></small><b>PitStop Connect</b></div>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year">2026</span> Igor Gonçalves</span>
+      <a href="../index.html">← <span class="l-pt">Voltar ao início</span><span class="l-en">Back to home</span></a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

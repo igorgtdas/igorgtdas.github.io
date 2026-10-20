@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" role="img" aria-labelledby="t d">
+  <title id="t">PitStop AI Sales — agent flow</title>
+  <desc id="d">WhatsApp message goes through a FastAPI webhook and guardrails into an agent orchestration loop (plan, execute tools, validate, respond) supported by stage specialists, tools, session memory and a RAG knowledge base.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6b7d"/></marker>
+    <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker>
+    <pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#ffffff" stroke-opacity=".035"/></pattern>
+    <style>
+      text{font-family:'Segoe UI',system-ui,Arial,sans-serif;fill:#e7edf4}
+      .t{font-size:14px;font-weight:600}
+      .s{font-size:11.5px;fill:#8d9aab}
+      .m{font-family:Consolas,'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;fill:#22d3ee;font-weight:600}
+      .c{font-size:11.5px;fill:#cbd5e1}
+      .n{fill:#121921;stroke:#2e3d4e;stroke-width:1.2}
+      .k{fill:#17202a;stroke:#2e3d4e}
+      .hi{fill:#0f2a33;stroke:#22d3ee;stroke-width:1.3}
+      .ln{stroke:#5b6b7d;stroke-width:1.6;fill:none}
+    </style>
+  </defs>
+  <rect width="880" height="460" rx="14" fill="#0b1016"/>
+  <rect width="880" height="460" rx="14" fill="url(#g)"/>
+
+  <!-- Entrada -->
+  <rect class="n" x="20" y="74" width="120" height="60" rx="10"/>
+  <text class="t" x="80" y="100" text-anchor="middle">Customer</text>
+  <text class="s" x="80" y="118" text-anchor="middle">WhatsApp</text>
+
+  <rect class="n" x="170" y="74" width="130" height="60" rx="10"/>
+  <text class="t" x="235" y="100" text-anchor="middle">FastAPI</text>
+  <text class="s" x="235" y="118" text-anchor="middle">webhook · auth</text>
+
+  <rect class="n" x="330" y="74" width="140" height="60" rx="10"/>
+  <text class="t" x="400" y="100" text-anchor="middle">Guardrails</text>
+  <text class="s" x="400" y="118" text-anchor="middle">safety · scope</text>
+
+  <path class="ln" d="M140 104H168" marker-end="url(#a)"/>
+  <path class="ln" d="M300 104H328" marker-end="url(#a)"/>
+  <path class="ln" d="M470 104H518" marker-end="url(#a)"/>
+
+  <!-- Orquestração -->
+  <rect x="500" y="30" width="360" height="270" rx="14" fill="none" stroke="#22d3ee" stroke-opacity=".45" stroke-dasharray="5 5"/>
+  <text class="m" x="518" y="56">AGENT ORCHESTRATION · LANGGRAPH</text>
+
+  <rect class="hi" x="520" y="76" width="150" height="56" rx="10"/>
+  <text class="t" x="595" y="101" text-anchor="middle">Plan</text>
+  <text class="s" x="595" y="118" text-anchor="middle">intent · next actions</text>
+
+  <rect class="hi" x="690" y="76" width="150" height="56" rx="10"/>
+  <text class="t" x="765" y="101" text-anchor="middle">Execute</text>
+  <text class="s" x="765" y="118" text-anchor="middle">call tools</text>
+
+  <rect class="hi" x="690" y="166" width="150" height="56" rx="10"/>
+  <text class="t" x="765" y="191" text-anchor="middle">Validate</text>
+  <text class="s" x="765" y="208" text-anchor="middle">checks · policies</text>
+
+  <rect class="hi" x="520" y="166" width="150" height="56" rx="10"/>
+  <text class="t" x="595" y="191" text-anchor="middle">Respond</text>
+  <text class="s" x="595" y="208" text-anchor="middle">grounded reply</text>
+
+  <path d="M670 104H688" stroke="#22d3ee" stroke-width="1.6" marker-end="url(#ac)"/>
+  <path d="M765 132V164" stroke="#22d3ee" stroke-width="1.6" marker-end="url(#ac)"/>
+  <path d="M690 194H672" stroke="#22d3ee" stroke-width="1.6" marker-end="url(#ac)"/>
+  <path d="M700 166L652 134" stroke="#fb923c" stroke-width="1.6" stroke-dasharray="4 4" marker-end="url(#ao)"/>
+  <text class="s" x="652" y="156" style="fill:#fb923c">loop</text>
+
+  <text class="m" x="518" y="250" style="fill:#8d9aab">STAGE SPECIALISTS</text>
+  <rect class="k" x="520" y="258" width="66" height="26" rx="7"/><text class="c" x="553" y="275" text-anchor="middle">Triage</text>
+  <rect class="k" x="592" y="258" width="88" height="26" rx="7"/><text class="c" x="636" y="275" text-anchor="middle">Discovery</text>
+  <rect class="k" x="686" y="258" width="62" height="26" rx="7"/><text class="c" x="717" y="275" text-anchor="middle">Quote</text>
+  <rect class="k" x="754" y="258" width="82" height="26" rx="7"/><text class="c" x="795" y="275" text-anchor="middle">Handoff</text>
+
+  <!-- Resposta -->
+  <path class="ln" d="M520 194H80V136" marker-end="url(#a)"/>
+  <text class="s" x="300" y="186" text-anchor="middle">reply to customer</text>
+
+  <!-- Suporte -->
+  <rect class="n" x="170" y="330" width="130" height="60" rx="10"/>
+  <text class="t" x="235" y="356" text-anchor="middle">Session memory</text>
+  <text class="s" x="235" y="374" text-anchor="middle">Redis</text>
+
+  <rect class="n" x="330" y="330" width="140" height="60" rx="10"/>
+  <text class="t" x="400" y="356" text-anchor="middle">Knowledge base</text>
+  <text class="s" x="400" y="374" text-anchor="middle">RAG · pgvector</text>
+
+  <path class="ln" d="M235 330V280H498" stroke-dasharray="4 4" marker-end="url(#a)"/>
+  <path class="ln" d="M470 360H498" stroke-dasharray="4 4" marker-end="url(#a)"/>
+
+  <rect x="500" y="322" width="360" height="118" rx="14" fill="#0f141b" stroke="#2e3d4e"/>
+  <text class="m" x="518" y="346" style="fill:#fb923c">TOOLS</text>
+  <rect class="k" x="516" y="356" width="106" height="26" rx="7"/><text class="c" x="569" y="373" text-anchor="middle">Stock &amp; price</text>
+  <rect class="k" x="628" y="356" width="100" height="26" rx="7"/><text class="c" x="678" y="373" text-anchor="middle">CRM register</text>
+  <rect class="k" x="734" y="356" width="90" height="26" rx="7"/><text class="c" x="779" y="373" text-anchor="middle">RAG search</text>
+  <rect class="k" x="516" y="392" width="106" height="26" rx="7"/><text class="c" x="569" y="409" text-anchor="middle">Address · geo</text>
+  <rect class="k" x="628" y="392" width="112" height="26" rx="7"/><text class="c" x="684" y="409" text-anchor="middle">Audio · vision</text>
+  <rect class="k" x="746" y="392" width="78" height="26" rx="7"/><text class="c" x="785" y="409" text-anchor="middle">Routing</text>
+
+  <path class="ln" d="M680 302V320" marker-start="url(#a)" marker-end="url(#a)"/>
+
+  <text class="s" x="20" y="440">Simplified view · implementation details abstracted</text>
+</svg>

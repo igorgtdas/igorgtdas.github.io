@@ -1,91 +1,44 @@
-# Como colocar seu portfólio no ar (gratuito)
+# Deploy e manutenção do portfólio
 
-Deploy pelo Git (GitHub Pages). As **fotos não entram no repositório** — você usa URLs no `data.js`.
+Site estático (HTML, CSS e JS puros, sem build), publicado pelo **GitHub Pages** a partir da branch `main`, pasta raiz.
+URL: https://igorgtdas.github.io
 
----
+## Estrutura
 
-## Fotos fora do repositório
-
-As imagens estão no `.gitignore`, então **não serão enviadas ao GitHub**. O site usa as URLs que você configurar no `data.js`.
-
-### Passo 1: Hospedar as imagens (gratuito)
-
-1. Acesse [imgur.com](https://imgur.com) e crie uma conta (ou use [postimages.org](https://postimages.org) sem conta).
-2. Envie as **3 imagens**:
-   - sua foto de perfil
-   - print do Projeto 1 (Previsão de HH)
-   - print do Projeto 2 (EDA)
-3. Para cada uma, pegue o **link direto** da imagem (no Imgur: botão direito na imagem → “Copiar endereço da imagem”; costuma ser algo como `https://i.imgur.com/XXXXX.png`).
-
-### Passo 2: Colocar as URLs no `data.js`
-
-Abra `data.js` e:
-
-- **Foto de perfil:** altere `heroImageUrl` para a URL da sua foto:
-  ```js
-  heroImageUrl: 'https://i.imgur.com/SUA_FOTO.png',
-  ```
-
-- **Projetos:** em cada item do array `projects`, altere o campo `image` para a URL do print:
-  ```js
-  // Projeto 1
-  image: 'https://i.imgur.com/PRINT_PROJETO_1.png',
-
-  // Projeto 2
-  image: 'https://i.imgur.com/PRINT_PROJETO_2.png',
-  ```
-
-Salve o arquivo. Assim o site carrega as imagens pela internet e o repositório não precisa (e não vai) ter as fotos.
-
----
-
-## Deploy no GitHub Pages
-
-### 1. Criar o repositório no GitHub
-
-- Acesse [github.com/new](https://github.com/new).
-- Nome sugerido: **`igorgtdas.github.io`** (assim a URL do site fica `https://igorgtdas.github.io`).
-- Crie o repositório (pode ser público ou privado; as fotos não estarão nele).
-
-### 2. Subir o projeto (PowerShell)
-
-Na pasta do projeto:
-
-```powershell
-cd "c:\Users\igor_\Projetos Data Siencea-AI Engineer"
-
-git init
-git add index.html styles.css script.js data.js .gitignore DEPLOY.md
-git status
-git commit -m "Portfolio"
-git branch -M main
-git remote add origin https://github.com/igorgtdas/igorgtdas.github.io.git
-git push -u origin main
+```
+index.html                 landing
+cases/*.html               páginas de case dos projetos profissionais
+assets/css/styles.css      estilos (tokens de tema no :root)
+assets/js/data.js          conteúdo dos cards (projetos profissionais e pessoais)
+assets/js/main.js          idioma, tema, menu, render dos cards, slideshow
+assets/img/                fotos e prints dos projetos pessoais
+assets/diagrams/*.svg      diagramas de arquitetura
+docs/                      PDFs públicos (TCC)
 ```
 
-(Se o repositório tiver outro nome, troque `igorgtdas.github.io` na URL do `remote`.)
+- **Idioma:** todo texto existe em PT e EN (`<span class="l-pt">` / `<span class="l-en">`). O botão só troca `data-lang` no `<html>`.
+- **Tema:** escuro por padrão; o botão alterna para claro (`data-theme="light"`).
+- **Novo projeto pessoal:** adicione um objeto em `personal` no `assets/js/data.js`.
+- **Novo projeto profissional:** adicione em `featured` e crie a página em `cases/` copiando uma existente.
 
-**Importante:** as fotos **não** entram no `git add` porque estão no `.gitignore`. Só sobem o código e o `data.js` com as URLs.
+## Testar localmente
 
-### 3. Ativar o GitHub Pages
+Abra o `index.html` direto no navegador, ou sirva a pasta com qualquer servidor estático.
 
-- No GitHub: repositório → **Settings** → **Pages**.
-- Em **Source**: **Deploy from a branch**.
-- Branch: **main**, pasta **/ (root)**.
-- Salve. Em 1–2 minutos o site estará em **https://igorgtdas.github.io**.
+## Publicar
 
-### 4. Usar no LinkedIn
+```bash
+git push origin main
+```
 
-Use essa URL no campo “Website” ou “Link” do seu perfil.
+O Pages atualiza em 1 a 2 minutos.
 
----
+## Repositório público e segurança
 
-## Resumo
+No plano gratuito do GitHub, o Pages só publica a partir de **repositório público**. Isso é seguro aqui porque o repo contém apenas o que o site já mostra (HTML, CSS, imagens).
 
-| Onde está | O que sobe no Git |
-|-----------|--------------------|
-| Fotos (perfil + prints) | Não — ficam no Imgur (ou outro host) e são referenciadas por URL no `data.js` |
-| Código (HTML, CSS, JS, data.js) | Sim |
-| Currículo / PDFs / zips | Não (estão no `.gitignore`) |
+Regras:
 
-Assim ninguém vê suas fotos no repositório; só o site publicado exibe as imagens pelas URLs que você configurou.
+- Nunca commitar código, `.env`, logs, prints ou dados dos projetos da empresa.
+- Os projetos profissionais usam nomes fictícios (família **PitStop**). Não citar empresa, clientes, IDs de conta ou nomes internos.
+- Antes de cada push, procure no diff por nomes reais e segredos.

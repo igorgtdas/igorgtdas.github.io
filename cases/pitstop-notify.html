@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-lang="pt" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PitStop Notify · Case · Igor Gonçalves</title>
+  <meta name="title-pt" content="PitStop Notify · Case · Igor Gonçalves">
+  <meta name="title-en" content="PitStop Notify · Case study · Igor Gonçalves">
+  <meta name="description" content="Case: mensageria proativa no WhatsApp com pipelines agendados, projeção de quilometragem e resumos por LLM.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2322d3ee'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='700' font-size='13' text-anchor='middle' fill='%23061015'%3EIG%3C/text%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var d = document.documentElement, l, t;
+      try { l = localStorage.getItem('portfolio-lang'); t = localStorage.getItem('portfolio-theme'); } catch (e) {}
+      if (l === 'en') d.setAttribute('data-lang', 'en');
+      if (t === 'light') d.setAttribute('data-theme', 'light');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo"><span class="logo-mark">IG</span> Igor Gonçalves</a>
+      <ul class="nav-links">
+        <li><a href="pitstop-ai-sales.html">AI Sales</a></li>
+        <li><a href="pitstop-connect.html">Connect</a></li>
+        <li><a href="pitstop-notify.html">Notify</a></li>
+        <li><a href="../index.html#contato"><span class="l-pt">Contato</span><span class="l-en">Contact</span></a></li>
+      </ul>
+      <div class="nav-right">
+        <button type="button" class="icon-btn lang-toggle" aria-label="Switch to English">EN</button>
+        <button type="button" class="icon-btn theme-toggle" aria-label="Ativar tema claro">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <a href="../index.html#projetos" class="back-link">← <span class="l-pt">Voltar aos projetos</span><span class="l-en">Back to projects</span></a>
+        <div class="chip-row">
+          <span class="tag-nda"><span class="l-pt">Projeto profissional · código sob NDA</span><span class="l-en">Professional project · code under NDA</span></span>
+        </div>
+        <h1 class="case-title">PitStop <span class="gradient-text">Notify</span></h1>
+        <p class="case-lead">
+          <span class="l-pt">Mensageria proativa no WhatsApp. Em vez de esperar o cliente lembrar da revisão, a oficina manda todo dia a informação certa: o clima, o status do carro na oficina e um aviso quando a troca de óleo ou de pneus está chegando.</span>
+          <span class="l-en">Proactive WhatsApp messaging. Instead of waiting for customers to remember their service, the shop sends the right info every day: the weather, the car's status at the shop, and a heads-up when an oil change or new tires are coming due.</span>
+        </p>
+        <dl class="case-meta">
+          <div><dt><span class="l-pt">Papel</span><span class="l-en">Role</span></dt><dd><span class="l-pt">Backend e pipelines</span><span class="l-en">Backend &amp; pipelines</span></dd></div>
+          <div><dt><span class="l-pt">Cadência</span><span class="l-en">Cadence</span></dt><dd><span class="l-pt">Relatórios diários</span><span class="l-en">Daily reports</span></dd></div>
+          <div><dt><span class="l-pt">Orquestração</span><span class="l-en">Orchestration</span></dt><dd>Airflow</dd></div>
+          <div><dt><span class="l-pt">Canal</span><span class="l-en">Channel</span></dt><dd>WhatsApp</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="container case-layout">
+      <aside class="case-toc">
+        <p><span class="l-pt">Neste case</span><span class="l-en">On this page</span></p>
+        <ol>
+          <li><a href="#mensagens"><span class="l-pt">As mensagens</span><span class="l-en">The messages</span></a></li>
+          <li><a href="#projecao"><span class="l-pt">Projeção de revisão</span><span class="l-en">Service projection</span></a></li>
+          <li><a href="#pipeline">Pipeline</a></li>
+          <li><a href="#confiabilidade"><span class="l-pt">Confiabilidade</span><span class="l-en">Reliability</span></a></li>
+          <li><a href="#stack">Stack</a></li>
+        </ol>
+      </aside>
+
+      <div class="case-content">
+        <section id="mensagens" class="case-section">
+          <h2><span class="num">01</span><span class="l-pt">O que o cliente recebe</span><span class="l-en">What the customer gets</span></h2>
+          <p>
+            <span class="l-pt">Exemplos ilustrativos (dados fictícios) dos relatórios que saem automaticamente em horários fixos ao longo do dia:</span>
+            <span class="l-en">Illustrative examples (fictional data) of the reports that go out automatically at fixed times during the day:</span>
+          </p>
+          <div class="chat-grid">
+            <div class="phone">
+              <div class="phone-head"><span class="avatar">PS</span><div><b>PitStop</b><small><span class="l-pt">conta comercial</span><span class="l-en">business account</span></small></div></div>
+              <div class="phone-body">
+                <span class="bubble-label"><span class="l-pt">Bom dia · 06:30</span><span class="l-en">Good morning · 6:30</span></span>
+                <div class="bubble">
+                  <span class="l-pt">☀️ <b>Bom dia, Carlos!</b><br>Hoje em Campinas: 18° → 29°, <b>80% de chance de chuva</b> à tarde.<br><br>🔧 Dica: com pista molhada, vale conferir palhetas e calibragem dos pneus antes de sair.</span>
+                  <span class="l-en">☀️ <b>Good morning, Carlos!</b><br>Today in Campinas: 18° → 29°, <b>80% chance of rain</b> in the afternoon.<br><br>🔧 Tip: on wet roads, check your wipers and tire pressure before heading out.</span>
+                  <span class="time">06:30</span>
+                </div>
+              </div>
+            </div>
+            <div class="phone">
+              <div class="phone-head"><span class="avatar">PS</span><div><b>PitStop</b><small><span class="l-pt">conta comercial</span><span class="l-en">business account</span></small></div></div>
+              <div class="phone-body">
+                <span class="bubble-label"><span class="l-pt">Status do veículo · 12:00</span><span class="l-en">Vehicle status · 12:00</span></span>
+                <div class="bubble">
+                  <span class="l-pt">🚗 <b>Seu HB20 está na etapa 3 de 4</b><br>✅ Diagnóstico<br>✅ Troca de pastilhas<br>🔄 Alinhamento e balanceamento<br>⏳ Lavagem e entrega</span>
+                  <span class="l-en">🚗 <b>Your HB20 is at step 3 of 4</b><br>✅ Diagnosis<br>✅ Brake pad replacement<br>🔄 Alignment &amp; balancing<br>⏳ Wash &amp; pickup</span>
+                  <div class="bar"><i style="width:72%"></i></div>
+                  <span class="l-pt">Previsão de entrega: hoje, 17h.</span><span class="l-en">Estimated pickup: today, 5pm.</span>
+                  <span class="time">12:00</span>
+                </div>
+              </div>
+            </div>
+            <div class="phone">
+              <div class="phone-head"><span class="avatar">PS</span><div><b>PitStop</b><small><span class="l-pt">conta comercial</span><span class="l-en">business account</span></small></div></div>
+              <div class="phone-body">
+                <span class="bubble-label"><span class="l-pt">Lembrete de revisão</span><span class="l-en">Service reminder</span></span>
+                <div class="bubble">
+                  <span class="l-pt">📊 <b>Resumo do mês</b><br>Você rodou <b>1.240 km</b> (média de 1.180 km/mês).<br><br>🛢️ Pela sua média, a <b>troca de óleo</b> deve chegar em <b>~3 semanas</b> (10.000 km).<br>🛞 Seus pneus completam <b>1 ano</b> em março: vale um rodízio na próxima visita.<br><br>Quer agendar? Responda <b>SIM</b>.</span>
+                  <span class="l-en">📊 <b>Monthly summary</b><br>You drove <b>1,240 km</b> (avg. 1,180 km/month).<br><br>🛢️ At your pace, your <b>oil change</b> is due in <b>~3 weeks</b> (10,000 km).<br>🛞 Your tires turn <b>1 year old</b> in March: worth a rotation on your next visit.<br><br>Want to book? Reply <b>YES</b>.</span>
+                  <span class="time">19:00</span>
+                </div>
+              </div>
+            </div>
+            <div class="phone">
+              <div class="phone-head"><span class="avatar">PS</span><div><b>PitStop</b><small><span class="l-pt">conta comercial</span><span class="l-en">business account</span></small></div></div>
+              <div class="phone-body">
+                <span class="bubble-label"><span class="l-pt">Campanha sazonal</span><span class="l-en">Seasonal campaign</span></span>
+                <div class="bubble">
+                  <span class="l-pt">🎄 <b>Vai pegar estrada no fim de ano?</b><br>Revisão de viagem com check-up de 30 itens: freios, pneus, fluidos e iluminação.<br><br>Seu último check-up foi há <b>8 meses</b>. Garanta seu horário antes do dia 20!</span>
+                  <span class="l-en">🎄 <b>Hitting the road for the holidays?</b><br>Road-trip service with a 30-point check-up: brakes, tires, fluids and lights.<br><br>Your last check-up was <b>8 months ago</b>. Book a slot before the 20th!</span>
+                  <span class="time">10:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projecao" class="case-section">
+          <h2><span class="num">02</span><span class="l-pt">Projeção de revisão</span><span class="l-en">Service projection</span></h2>
+          <p>
+            <span class="l-pt">O lembrete não é por data fixa. O sistema olha o histórico de quilometragem de cada carro, calcula a média mensal e projeta quando ele vai bater o próximo marco de manutenção. Assim o aviso chega na hora certa para quem roda muito e não incomoda quem roda pouco.</span>
+            <span class="l-en">Reminders aren't on a fixed date. The system looks at each car's mileage history, computes the monthly average and projects when it will hit the next maintenance milestone. That way the alert arrives on time for heavy drivers and doesn't bother light ones.</span>
+          </p>
+          <div class="card-grid three">
+            <div class="info-card"><h4><span class="ic">km</span><span class="l-pt">Média de uso</span><span class="l-en">Usage average</span></h4><p><span class="l-pt">Calculada a partir das leituras de quilometragem de cada visita e do histórico recente.</span><span class="l-en">Computed from the mileage readings at each visit and recent history.</span></p></div>
+            <div class="info-card"><h4><span class="ic">🛢</span><span class="l-pt">Marcos por km</span><span class="l-en">Mileage milestones</span></h4><p><span class="l-pt">Troca de óleo, filtros e alinhamento disparam quando a projeção fica a poucas semanas do limite.</span><span class="l-en">Oil, filters and alignment trigger when the projection is a few weeks from the limit.</span></p></div>
+            <div class="info-card"><h4><span class="ic">📅</span><span class="l-pt">Marcos por tempo</span><span class="l-en">Time milestones</span></h4><p><span class="l-pt">Pneus e revisão geral também têm limite de tempo (ex.: 1 ano), mesmo que o carro rode pouco.</span><span class="l-en">Tires and general service also have a time limit (e.g. 1 year), even if the car is barely driven.</span></p></div>
+          </div>
+        </section>
+
+        <section id="pipeline" class="case-section">
+          <h2><span class="num">03</span><span class="l-pt">Como funciona por trás</span><span class="l-en">How it works behind the scenes</span></h2>
+          <figure class="figure">
+            <img src="../assets/diagrams/notify.svg" alt="Pipeline: agendador dispara coleta de clima, ordens de serviço e quilometragem, projeção, composição com templates e LLM, e envio pelo WhatsApp com log e alerta de falha">
+            <figcaption><span class="l-pt">Cada relatório é um pipeline independente que roda no horário dele.</span><span class="l-en">Each report is an independent pipeline that runs on its own schedule.</span></figcaption>
+          </figure>
+          <ol class="steps">
+            <li><div><b><span class="l-pt">Agendamento</span><span class="l-en">Scheduling</span></b><span><span class="l-pt">DAGs no Airflow disparam cada relatório no horário certo. Ativação e período são configuráveis por cliente, sem deploy.</span><span class="l-en">Airflow DAGs fire each report at the right time. Activation and period are configurable per customer, with no deploy.</span></span></div></li>
+            <li><div><b><span class="l-pt">Coleta</span><span class="l-en">Collection</span></b><span><span class="l-pt">Busca dados de APIs externas (clima) e dos bancos internos (ordens de serviço, quilometragem).</span><span class="l-en">Pulls data from external APIs (weather) and internal databases (service orders, mileage).</span></span></div></li>
+            <li><div><b><span class="l-pt">Composição</span><span class="l-en">Composition</span></b><span><span class="l-pt">Templates fixos garantem formato consistente; quando falta dado, a mensagem diz isso explicitamente em vez de inventar.</span><span class="l-en">Fixed templates keep the format consistent; when data is missing, the message says so instead of making something up.</span></span></div></li>
+            <li><div><b><span class="l-pt">Toque de IA</span><span class="l-en">AI touch</span></b><span><span class="l-pt">Um LLM escreve só o resumo curto e a dica do dia, com um segundo provedor como fallback se o primeiro falhar.</span><span class="l-en">An LLM writes only the short summary and the tip of the day, with a second provider as fallback if the first one fails.</span></span></div></li>
+            <li><div><b><span class="l-pt">Envio</span><span class="l-en">Delivery</span></b><span><span class="l-pt">Texto e imagem pelo gateway de WhatsApp, com pausa entre envios para respeitar limites.</span><span class="l-en">Text and images through the WhatsApp gateway, with pauses between sends to respect rate limits.</span></span></div></li>
+          </ol>
+        </section>
+
+        <section id="confiabilidade" class="case-section">
+          <h2><span class="num">04</span><span class="l-pt">Confiabilidade</span><span class="l-en">Reliability</span></h2>
+          <div class="card-grid">
+            <div class="info-card"><h4><span class="ic">↻</span><span class="l-pt">Retry com backoff</span><span class="l-en">Retry with backoff</span></h4><p><span class="l-pt">Cada envio tenta de novo com intervalo crescente e valida a resposta do gateway.</span><span class="l-en">Each send retries with growing intervals and validates the gateway response.</span></p></div>
+            <div class="info-card"><h4><span class="ic">!</span><span class="l-pt">Alerta de falha</span><span class="l-en">Failure alerts</span></h4><p><span class="l-pt">Se o envio falha de vez, um administrador é avisado na hora, e tudo fica registrado.</span><span class="l-en">If a send fails for good, an admin is alerted right away, and everything is logged.</span></p></div>
+            <div class="info-card"><h4><span class="ic">≠</span><span class="l-pt">Anti-spam</span><span class="l-en">Anti-spam</span></h4><p><span class="l-pt">Regras evitam repetir o mesmo alerta várias vezes no dia quando nada mudou.</span><span class="l-en">Rules avoid repeating the same alert several times a day when nothing has changed.</span></p></div>
+            <div class="info-card"><h4><span class="ic">◐</span><span class="l-pt">Modos de teste</span><span class="l-en">Test modes</span></h4><p><span class="l-pt">Pré-visualização local que nunca envia e modo de envio para um único número de teste.</span><span class="l-en">Local preview that never sends, and a mode that sends only to a single test number.</span></p></div>
+          </div>
+        </section>
+
+        <section id="stack" class="case-section">
+          <h2><span class="num">05</span>Stack</h2>
+          <div class="chip-row">
+            <span class="chip">Python 3.11</span><span class="chip">Apache Airflow</span><span class="chip">Pandas</span><span class="chip">SQLAlchemy</span>
+            <span class="chip">PostgreSQL</span><span class="chip">Matplotlib</span><span class="chip">LLM APIs</span><span class="chip">REST APIs</span>
+            <span class="chip">Docker</span><span class="chip">GitHub Actions</span>
+          </div>
+          <div class="callout">
+            <span class="l-pt">Nomes, marcas e dados foram alterados. O projeto real é de outro segmento; o tema de oficina é só para ilustrar.</span>
+            <span class="l-en">Names, brands and data were changed. The real project is in a different industry; the repair-shop theme is only for illustration.</span>
+          </div>
+        </section>
+
+        <a class="next-case" href="pitstop-ai-sales.html">
+          <div><small><span class="l-pt">Voltar ao primeiro case</span><span class="l-en">Back to the first case</span></small><b>PitStop AI Sales</b></div>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year">2026</span> Igor Gonçalves</span>
+      <a href="../index.html">← <span class="l-pt">Voltar ao início</span><span class="l-en">Back to home</span></a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
