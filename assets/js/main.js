@@ -2,7 +2,7 @@
  * Script compartilhado (landing + páginas de case).
  * - Idioma: todo texto existe em PT e EN (.l-pt / .l-en); trocar o idioma só muda
  *   o atributo data-lang no <html>, sem re-renderizar nada.
- * - Tema: dark por padrão, alternável para light.
+ * - Tema: claro por padrão, alternável para escuro.
  */
 (function () {
   'use strict';
@@ -34,7 +34,7 @@
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
     var btn = document.querySelector('.theme-toggle');
-    if (btn) btn.setAttribute('aria-label', theme === 'light' ? 'Ativar tema escuro' : 'Ativar tema claro');
+    if (btn) btn.setAttribute('aria-label', theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
   }
 
   // ---------- Helpers de render ----------
@@ -152,7 +152,7 @@
 
   // ---------- Init ----------
   applyLang(currentLang());
-  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
   var data = window.PORTFOLIO_DATA;
   var featuredEl = document.getElementById('featured-grid');
@@ -172,7 +172,7 @@
 
   var themeBtn = document.querySelector('.theme-toggle');
   if (themeBtn) themeBtn.addEventListener('click', function () {
-    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(next);
     store(THEME_KEY, next);
   });

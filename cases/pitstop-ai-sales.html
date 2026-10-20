@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-lang="pt" data-theme="dark">
+<html lang="pt-BR" data-lang="pt" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +7,24 @@
   <meta name="title-pt" content="PitStop AI Sales · Case · Igor Gonçalves">
   <meta name="title-en" content="PitStop AI Sales · Case study · Igor Gonçalves">
   <meta name="description" content="Case: agente de vendas com IA em FastAPI, LangChain e LangGraph, com pipeline RAG e infraestrutura AWS em Terraform.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2322d3ee'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='700' font-size='13' text-anchor='middle' fill='%23061015'%3EIG%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2309090b'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='700' font-size='13' text-anchor='middle' fill='%23ffffff'%3EIG%3C/text%3E%3C/svg%3E">
   <script>
     (function () {
       var d = document.documentElement, l, t;
       try { l = localStorage.getItem('portfolio-lang'); t = localStorage.getItem('portfolio-theme'); } catch (e) {}
       if (l === 'en') d.setAttribute('data-lang', 'en');
-      if (t === 'light') d.setAttribute('data-theme', 'light');
+      if (t === 'dark') d.setAttribute('data-theme', 'dark');
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
   <header class="header">
     <nav class="nav">
-      <a href="../index.html" class="nav-logo"><span class="logo-mark">IG</span> Igor Gonçalves</a>
+      <a href="../index.html" class="nav-logo">Igor Gonçalves</a>
       <ul class="nav-links">
         <li><a href="pitstop-ai-sales.html">AI Sales</a></li>
         <li><a href="pitstop-connect.html">Connect</a></li>
@@ -33,7 +33,7 @@
       </ul>
       <div class="nav-right">
         <button type="button" class="icon-btn lang-toggle" aria-label="Switch to English">EN</button>
-        <button type="button" class="icon-btn theme-toggle" aria-label="Ativar tema claro">
+        <button type="button" class="icon-btn theme-toggle" aria-label="Ativar tema escuro">
           <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
@@ -49,7 +49,7 @@
         <div class="chip-row">
           <span class="tag-nda"><span class="l-pt">Projeto profissional · código sob NDA</span><span class="l-en">Professional project · code under NDA</span></span>
         </div>
-        <h1 class="case-title">PitStop <span class="gradient-text">AI Sales</span></h1>
+        <h1 class="case-title">PitStop AI Sales</h1>
         <p class="case-lead">
           <span class="l-pt">Um agente de vendas com IA que atende clientes de uma rede de autopeças e oficinas pelo WhatsApp. Ele entende o que o cliente precisa, consulta estoque e preço, cadastra o cliente e entrega a conversa para o vendedor certo quando é hora de fechar.</span>
           <span class="l-en">An AI sales agent that serves customers of an auto-parts and repair network over WhatsApp. It figures out what the customer needs, checks stock and price, registers the customer and hands the conversation to the right salesperson when it's time to close.</span>
@@ -79,7 +79,7 @@
 
       <div class="case-content">
         <section id="problema" class="case-section">
-          <h2><span class="num">01</span><span class="l-pt">O problema</span><span class="l-en">The problem</span></h2>
+          <h2><span class="l-pt">O problema</span><span class="l-en">The problem</span></h2>
           <p>
             <span class="l-pt">O balcão de autopeças recebe pelo WhatsApp perguntas como "tem pastilha de freio pro meu carro?" o dia inteiro, inclusive fora do horário. Os vendedores perdiam tempo com triagem e cadastro, e o cliente esperava.</span>
             <span class="l-en">The parts counter gets WhatsApp questions like "do you have brake pads for my car?" all day, including after hours. Salespeople lost time on triage and data entry, and customers waited.</span>
@@ -91,7 +91,7 @@
         </section>
 
         <section id="agentes" class="case-section">
-          <h2><span class="num">02</span><span class="l-pt">Arquitetura de agentes</span><span class="l-en">Agent architecture</span></h2>
+          <h2><span class="l-pt">Arquitetura de agentes</span><span class="l-en">Agent architecture</span></h2>
           <p>
             <span class="l-pt">Em vez de um único prompt gigante, o atendimento é um <strong>loop agentivo</strong> orquestrado com LangGraph: o agente planeja a próxima ação, executa ferramentas, valida o resultado e só então responde. Se a validação reprova, o loop volta para o planejamento.</span>
             <span class="l-en">Instead of one giant prompt, the conversation runs as an <strong>agentic loop</strong> orchestrated with LangGraph: the agent plans the next action, runs tools, validates the result and only then replies. If validation fails, the loop goes back to planning.</span>
@@ -131,7 +131,7 @@
         </section>
 
         <section id="api" class="case-section">
-          <h2><span class="num">03</span><span class="l-pt">API em FastAPI</span><span class="l-en">FastAPI service</span></h2>
+          <h2><span class="l-pt">API em FastAPI</span><span class="l-en">FastAPI service</span></h2>
           <p>
             <span class="l-pt">Todo o sistema é exposto como uma API REST em FastAPI, multi-tenant, com autenticação JWT e papéis de acesso. Além do webhook que recebe as mensagens, a API gerencia o que o agente sabe e como ele se comporta.</span>
             <span class="l-en">The whole system is a multi-tenant REST API in FastAPI, with JWT auth and access roles. Besides the webhook that receives messages, the API manages what the agent knows and how it behaves.</span>
@@ -144,7 +144,7 @@
         </section>
 
         <section id="rag" class="case-section">
-          <h2><span class="num">04</span><span class="l-pt">Pipeline de RAG</span><span class="l-en">RAG pipeline</span></h2>
+          <h2><span class="l-pt">Pipeline de RAG</span><span class="l-en">RAG pipeline</span></h2>
           <p>
             <span class="l-pt">O agente responde com base em documentos da empresa (catálogos, políticas, fichas técnicas), não só no que o modelo "acha". O pipeline roda dentro da própria API:</span>
             <span class="l-en">The agent answers from company documents (catalogs, policies, spec sheets), not just from what the model "thinks". The pipeline runs inside the API itself:</span>
@@ -159,7 +159,7 @@
         </section>
 
         <section id="infra" class="case-section">
-          <h2><span class="num">05</span><span class="l-pt">Infraestrutura na nuvem</span><span class="l-en">Cloud infrastructure</span></h2>
+          <h2><span class="l-pt">Infraestrutura na nuvem</span><span class="l-en">Cloud infrastructure</span></h2>
           <p>
             <span class="l-pt">Tudo roda na AWS e é descrito em Terraform, com ambientes de desenvolvimento e produção separados. A ideia: o mínimo de servidor para cuidar, o mínimo exposto à internet e custo baixo.</span>
             <span class="l-en">Everything runs on AWS and is described in Terraform, with separate dev and prod environments. The idea: as few servers to babysit as possible, as little exposed to the internet as possible, and low cost.</span>
@@ -188,7 +188,7 @@
         </section>
 
         <section id="qualidade" class="case-section">
-          <h2><span class="num">06</span><span class="l-pt">Qualidade e observabilidade</span><span class="l-en">Quality &amp; observability</span></h2>
+          <h2><span class="l-pt">Qualidade e observabilidade</span><span class="l-en">Quality &amp; observability</span></h2>
           <div class="card-grid three">
             <div class="info-card"><h4><span class="ic">✓</span><span class="l-pt">250+ testes</span><span class="l-en">250+ tests</span></h4><p><span class="l-pt">pytest cobrindo fluxo de conversa, RAG, roteamento, handoff, segurança e autenticação.</span><span class="l-en">pytest covering conversation flow, RAG, routing, handoff, security and auth.</span></p></div>
             <div class="info-card"><h4><span class="ic">◎</span>Tracing</h4><p><span class="l-pt">Cada passo do agente e cada ferramenta é rastreado no LangSmith, o que facilita entender por que ele respondeu o que respondeu.</span><span class="l-en">Every agent step and tool call is traced in LangSmith, so it's easy to see why it said what it said.</span></p></div>
@@ -197,7 +197,7 @@
         </section>
 
         <section id="stack" class="case-section">
-          <h2><span class="num">07</span>Stack</h2>
+          <h2>Stack</h2>
           <div class="chip-row">
             <span class="chip">Python 3.12</span><span class="chip">FastAPI</span><span class="chip">Pydantic</span><span class="chip">LangChain</span>
             <span class="chip">LangGraph</span><span class="chip">OpenAI</span><span class="chip">sentence-transformers</span><span class="chip">PostgreSQL</span>

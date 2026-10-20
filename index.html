@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-lang="pt" data-theme="dark">
+<html lang="pt-BR" data-lang="pt" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +10,24 @@
   <meta property="og:title" content="Igor Gonçalves · AI Engineer">
   <meta property="og:description" content="Agentes LLM, RAG, APIs em FastAPI e infraestrutura AWS.">
   <meta property="og:image" content="assets/img/profile.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2322d3ee'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='700' font-size='13' text-anchor='middle' fill='%23061015'%3EIG%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2309090b'/%3E%3Ctext x='16' y='21' font-family='Arial' font-weight='700' font-size='13' text-anchor='middle' fill='%23ffffff'%3EIG%3C/text%3E%3C/svg%3E">
   <script>
     (function () {
       var d = document.documentElement, l, t;
       try { l = localStorage.getItem('portfolio-lang'); t = localStorage.getItem('portfolio-theme'); } catch (e) {}
       if (l === 'en') d.setAttribute('data-lang', 'en');
-      if (t === 'light') d.setAttribute('data-theme', 'light');
+      if (t === 'dark') d.setAttribute('data-theme', 'dark');
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <header class="header">
     <nav class="nav">
-      <a href="#top" class="nav-logo"><span class="logo-mark">IG</span> Igor Gonçalves</a>
+      <a href="#top" class="nav-logo">Igor Gonçalves</a>
       <ul class="nav-links">
         <li><a href="#projetos"><span class="l-pt">Projetos</span><span class="l-en">Projects</span></a></li>
         <li><a href="#skills">Skills</a></li>
@@ -36,7 +36,7 @@
       </ul>
       <div class="nav-right">
         <button type="button" class="icon-btn lang-toggle" aria-label="Switch to English">EN</button>
-        <button type="button" class="icon-btn theme-toggle" aria-label="Ativar tema claro">
+        <button type="button" class="icon-btn theme-toggle" aria-label="Ativar tema escuro">
           <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
@@ -53,42 +53,30 @@
       <div class="container">
         <div class="hero-grid">
           <div>
-            <span class="hero-status"><span class="pulse"></span>
-              <span class="l-pt">Construindo agentes de IA em produção</span><span class="l-en">Building production AI agents</span>
+            <span class="hero-status"><span class="dot"></span>
+              <span class="l-pt">Aberto a novas oportunidades</span><span class="l-en">Open to new opportunities</span>
             </span>
             <h1 class="hero-title">
-              <span class="l-pt">AI Engineer focado em <span class="gradient-text">backend, agentes e RAG</span></span>
-              <span class="l-en">AI Engineer focused on <span class="gradient-text">backend, agents and RAG</span></span>
+              <span class="l-pt">Igor Gonçalves<br><span class="soft">AI Engineer · Backend</span></span>
+              <span class="l-en">Igor Gonçalves<br><span class="soft">AI Engineer · Backend</span></span>
             </h1>
             <p class="hero-lead">
-              <span class="l-pt">Sou o Igor. Construo APIs em Python, agentes LLM orquestrados com LangGraph, pipelines de RAG e a infraestrutura AWS que roda tudo isso, do webhook do WhatsApp ao deploy em container.</span>
-              <span class="l-en">I'm Igor. I build Python APIs, LLM agents orchestrated with LangGraph, RAG pipelines and the AWS infrastructure that runs them, from the WhatsApp webhook to the container deploy.</span>
+              <span class="l-pt">Construo agentes de IA que atendem clientes reais: APIs em Python e FastAPI, orquestração com LangGraph, pipelines de RAG e a infraestrutura na AWS que coloca tudo em produção.</span>
+              <span class="l-en">I build AI agents that serve real customers: Python and FastAPI services, LangGraph orchestration, RAG pipelines and the AWS infrastructure that puts it all in production.</span>
             </p>
             <div class="hero-cta">
-              <a href="#projetos" class="btn btn-primary"><span class="l-pt">Ver projetos</span><span class="l-en">View projects</span> →</a>
-              <a href="#contato" class="btn btn-ghost"><span class="l-pt">Falar comigo</span><span class="l-en">Get in touch</span></a>
+              <a href="#projetos" class="btn btn-primary"><span class="l-pt">Ver projetos</span><span class="l-en">View projects</span></a>
+              <a href="https://www.linkedin.com/in/igorgtdas" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+              <a href="https://github.com/igorgtdas" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+            </div>
+            <div class="hero-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>São Paulo, <span class="l-pt">Brasil</span><span class="l-en">Brazil</span></span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>MBA Data Science · USP/Esalq</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span class="l-pt">6 anos em engenharia na aviação</span><span class="l-en">6 years of aviation engineering</span></span>
             </div>
           </div>
           <div class="hero-photo">
-            <img src="assets/img/profile.jpg" alt="Igor Gonçalves" width="300" height="300">
-            <div class="float-card float-1">
-              <span class="dot">⚡</span>
-              <div><b>FastAPI · LangGraph</b><small><span class="l-pt">agentes em produção</span><span class="l-en">agents in production</span></small></div>
-            </div>
-            <div class="float-card float-2">
-              <span class="dot">☁</span>
-              <div><b>AWS · Terraform</b><small><span class="l-pt">infra como código</span><span class="l-en">infrastructure as code</span></small></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="stack-strip">
-          <p><span class="l-pt">Stack do dia a dia</span><span class="l-en">Everyday stack</span></p>
-          <div class="chip-row">
-            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">LangChain</span>
-            <span class="chip">LangGraph</span><span class="chip">RAG</span><span class="chip">PostgreSQL · pgvector</span>
-            <span class="chip">Redis</span><span class="chip">Docker</span><span class="chip">AWS ECS</span>
-            <span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">WhatsApp API</span>
+            <img src="assets/img/profile.jpg" alt="Igor Gonçalves" width="260" height="260">
           </div>
         </div>
       </div>
