@@ -56,6 +56,23 @@ var PORTFOLIO_DATA = {
         { pt: '<strong>Projeção de km</strong> para lembrar troca de óleo, pneus e revisão', en: '<strong>Mileage projection</strong> to remind about oil, tires and service' }
       ],
       stack: ['Python', 'Airflow', 'Pandas', 'PostgreSQL', 'LLM', 'Docker']
+    },
+    {
+      id: 'orbitshop-assist',
+      challenge: true,
+      title: 'OrbitShop Assist',
+      image: 'assets/diagrams/orbit-assist.svg',
+      alt: { pt: 'Diagrama do assistente multiagente', en: 'Multi-agent assistant diagram' },
+      caseUrl: 'cases/orbitshop-assist.html',
+      summary: {
+        pt: 'Assistente multiagente para suporte e operações: responde pela documentação interna, consulta o banco via text-to-SQL e escala casos sensíveis para humanos.',
+        en: 'Multi-agent assistant for support and operations: answers from internal docs, queries the database via text-to-SQL and escalates sensitive cases to humans.'
+      },
+      highlights: [
+        { pt: '<strong>Guard, router e 3 especialistas</strong>, cada um com modelo e contexto próprios', en: '<strong>Guard, router and 3 specialists</strong>, each with its own model and context' },
+        { pt: '<strong>Escalonamento auditável</strong> e tracing completo no LangSmith', en: '<strong>Auditable escalation</strong> and full tracing in LangSmith' }
+      ],
+      stack: ['Python', 'FastAPI', 'LangChain', 'Text-to-SQL', 'LangSmith', 'Docker']
     }
   ],
 

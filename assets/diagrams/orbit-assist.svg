@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" role="img" aria-labelledby="t d">
+  <title id="t">OrbitShop Assist — multi-agent flow</title>
+  <desc id="d">A support agent sends a message to a FastAPI service. The orchestrator runs a guard agent, then a router that picks the knowledge, data or escalation specialist. The knowledge agent reads internal docs, the data agent generates and runs SQL, and the escalation agent writes a structured report to the database. Session memory and tracing support every step.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a1a1aa"/></marker>
+    <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d97706"/></marker>
+    <pattern id="g" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#0f172a" stroke-opacity=".035"/></pattern>
+    <style>
+      text{font-family:Inter,'Segoe UI',system-ui,Arial,sans-serif;fill:#18181b}
+      .t{font-size:13.5px;font-weight:600}
+      .s{font-size:11px;fill:#71717a}
+      .m{font-family:Consolas,'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;font-weight:600}
+      .n{fill:#ffffff;stroke:#d4d4d8;stroke-width:1.2}
+      .hi{fill:#eff6ff;stroke:#2563eb;stroke-width:1.3}
+      .ln{stroke:#a1a1aa;stroke-width:1.6;fill:none}
+    </style>
+  </defs>
+  <rect width="880" height="440" rx="14" fill="#ffffff"/>
+  <rect width="880" height="440" rx="14" fill="url(#g)"/>
+
+  <!-- Entrada -->
+  <rect class="n" x="20" y="60" width="120" height="58" rx="10"/>
+  <text class="t" x="80" y="85" text-anchor="middle">Support agent</text>
+  <text class="s" x="80" y="102" text-anchor="middle">CLI · REST client</text>
+
+  <rect class="n" x="170" y="60" width="130" height="58" rx="10"/>
+  <text class="t" x="235" y="85" text-anchor="middle">FastAPI</text>
+  <text class="s" x="235" y="102" text-anchor="middle">/session · /chat</text>
+
+  <path class="ln" d="M140 89H168" marker-start="url(#a)" marker-end="url(#a)"/>
+  <path class="ln" d="M300 89H328" marker-end="url(#a)"/>
+
+  <!-- Orquestrador -->
+  <rect x="330" y="20" width="530" height="300" rx="14" fill="none" stroke="#2563eb" stroke-opacity=".45" stroke-dasharray="5 5"/>
+  <text class="m" x="348" y="44" style="fill:#2563eb">ORCHESTRATOR</text>
+
+  <rect class="hi" x="350" y="60" width="140" height="58" rx="10"/>
+  <text class="t" x="420" y="85" text-anchor="middle">Guard agent</text>
+  <text class="s" x="420" y="102" text-anchor="middle">security · safety</text>
+
+  <rect class="hi" x="530" y="60" width="140" height="58" rx="10"/>
+  <text class="t" x="600" y="85" text-anchor="middle">Router agent</text>
+  <text class="s" x="600" y="102" text-anchor="middle">intent classification</text>
+
+  <path d="M490 89H528" stroke="#2563eb" stroke-width="1.6" marker-end="url(#ac)"/>
+  <text class="s" x="509" y="80" text-anchor="middle">clean</text>
+
+  <rect class="n" x="710" y="60" width="130" height="58" rx="10" style="stroke:#d97706"/>
+  <text class="t" x="775" y="85" text-anchor="middle">Blocked</text>
+  <text class="s" x="775" y="102" text-anchor="middle">injection · off-topic</text>
+  <path d="M420 60V40H775V58" stroke="#d97706" stroke-width="1.4" fill="none" stroke-dasharray="4 4" marker-end="url(#ao)"/>
+
+  <!-- Especialistas -->
+  <text class="m" x="348" y="160" style="fill:#71717a">SPECIALISTS</text>
+  <rect class="hi" x="350" y="172" width="150" height="66" rx="10"/>
+  <text class="t" x="425" y="198" text-anchor="middle">Knowledge agent</text>
+  <text class="s" x="425" y="215" text-anchor="middle">docs · newest policy wins</text>
+
+  <rect class="hi" x="520" y="172" width="150" height="66" rx="10"/>
+  <text class="t" x="595" y="198" text-anchor="middle">Data agent</text>
+  <text class="s" x="595" y="215" text-anchor="middle">text-to-SQL · interpret</text>
+
+  <rect class="hi" x="690" y="172" width="150" height="66" rx="10" style="fill:#fff7ed;stroke:#d97706"/>
+  <text class="t" x="765" y="198" text-anchor="middle">Escalation agent</text>
+  <text class="s" x="765" y="215" text-anchor="middle">L1 · L2 · finance · risk</text>
+
+  <path class="ln" d="M600 118V140H425V170" marker-end="url(#a)"/>
+  <path class="ln" d="M600 140V170" marker-end="url(#a)"/>
+  <path class="ln" d="M600 140H765V170" marker-end="url(#a)"/>
+  <path d="M670 220H688" stroke="#d97706" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#ao)"/>
+  <text class="s" x="679" y="252" text-anchor="middle" style="fill:#d97706">fraud · chargeback</text>
+
+  <rect class="n" x="350" y="262" width="490" height="40" rx="9" style="fill:#fafafa"/>
+  <text class="s" x="595" y="286" text-anchor="middle">Guard can skip the router and escalate directly (legal threats, coercion, fraud claims)</text>
+
+  <!-- Fontes de dados -->
+  <rect class="n" x="350" y="360" width="150" height="58" rx="10"/>
+  <text class="t" x="425" y="384" text-anchor="middle">Knowledge base</text>
+  <text class="s" x="425" y="401" text-anchor="middle">policies · FAQ · playbook</text>
+  <rect class="n" x="520" y="360" width="150" height="58" rx="10"/>
+  <text class="t" x="595" y="384" text-anchor="middle">SQL database</text>
+  <text class="s" x="595" y="401" text-anchor="middle">customers · orders · refunds</text>
+  <rect class="n" x="690" y="360" width="150" height="58" rx="10"/>
+  <text class="t" x="765" y="384" text-anchor="middle">Escalation log</text>
+  <text class="s" x="765" y="401" text-anchor="middle">structured report</text>
+  <path class="ln" d="M425 320V358" marker-start="url(#a)" marker-end="url(#a)" stroke-dasharray="4 4"/>
+  <path class="ln" d="M595 320V358" marker-start="url(#a)" marker-end="url(#a)" stroke-dasharray="4 4"/>
+  <path class="ln" d="M765 320V358" marker-end="url(#a)" stroke-dasharray="4 4"/>
+
+  <!-- Suporte -->
+  <rect class="n" x="20" y="200" width="280" height="58" rx="10"/>
+  <text class="t" x="160" y="224" text-anchor="middle">Session memory</text>
+  <text class="s" x="160" y="241" text-anchor="middle">start state · context window per agent</text>
+  <rect class="n" x="20" y="280" width="280" height="58" rx="10"/>
+  <text class="t" x="160" y="304" text-anchor="middle">Tracing · LangSmith</text>
+  <text class="s" x="160" y="321" text-anchor="middle">tokens · latency · tool calls</text>
+  <path class="ln" d="M300 229H328" stroke-dasharray="4 4" marker-end="url(#a)"/>
+  <path class="ln" d="M300 309H328" stroke-dasharray="4 4" marker-end="url(#a)"/>
+
+  <text class="s" x="20" y="420">Simplified view · fictional company</text>
+</svg>

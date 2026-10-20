@@ -59,7 +59,9 @@
 
   function renderFeatured(el, items) {
     el.innerHTML = items.map(function (p) {
-      var tags = '<span class="tag-nda">' + bi({ pt: 'Projeto profissional · NDA', en: 'Professional project · NDA' }) + '</span>';
+      var tags = p.challenge
+        ? '<span class="tag-nda tag-team">' + bi({ pt: 'Desafio técnico', en: 'Technical challenge' }) + '</span>'
+        : '<span class="tag-nda">' + bi({ pt: 'Projeto profissional · NDA', en: 'Professional project · NDA' }) + '</span>';
       if (p.team) tags += '<span class="tag-nda tag-team">' + bi({ pt: 'Contribuição em time', en: 'Team contribution' }) + '</span>';
       return '' +
         '<article class="feature-card reveal' + (p.hero ? ' is-hero' : '') + '">' +
