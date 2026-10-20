@@ -204,9 +204,10 @@ strong { color: var(--text); font-weight: 600; }
 .float-card b { font-family: var(--mono); font-size: .78rem; display: block; }
 .float-card small { color: var(--muted); }
 .float-card .dot { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-size: .9rem; }
-.float-1 { left: -64px; bottom: 34px; }
+/* Cards ficam sobre o ombro e a borda inferior, longe do rosto */
+.float-1 { left: -84px; bottom: 64px; }
 .float-1 .dot { background: var(--accent-soft); color: var(--accent); }
-.float-2 { right: -40px; top: 26px; }
+.float-2 { right: -56px; bottom: -26px; }
 .float-2 .dot { background: var(--accent-2-soft); color: var(--accent-2); }
 
 .stack-strip { margin-top: 64px; padding-top: 28px; border-top: 1px dashed var(--border); }
