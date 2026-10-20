@@ -33,6 +33,12 @@ git push origin main
 
 O Pages atualiza em 1 a 2 minutos.
 
+**Cache:** os links de CSS/JS têm `?v=AAAAMMDD` (ex.: `styles.css?v=20261020`). Ao mudar CSS ou JS, troque esse número em todas as páginas para os visitantes receberem a versão nova na hora:
+
+```bash
+sed -i -E 's/\?v=[0-9]+/?v=NOVA_DATA/g' index.html cases/*.html
+```
+
 ## Repositório público e segurança
 
 No plano gratuito do GitHub, o Pages só publica a partir de **repositório público**. Isso é seguro aqui porque o repo contém apenas o que o site já mostra (HTML, CSS, imagens).
