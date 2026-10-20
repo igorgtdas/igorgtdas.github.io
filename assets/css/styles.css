@@ -395,3 +395,14 @@ table.infra { width: 100%; border-collapse: collapse; font-size: .88rem; min-wid
   .metrics, .case-meta { grid-template-columns: 1fr; }
   .metric + .metric, .case-meta div + div { border-left: 0; border-top: 1px solid var(--border); }
 }
+
+/* Destaque de experiência no hero */
+.hero-exp { display: grid; grid-template-columns: auto 1fr; gap: 0; max-width: 600px; margin: -8px 0 32px; border: 1px solid var(--border); border-radius: var(--radius); }
+.hero-exp > div { display: flex; flex-direction: column; gap: 2px; padding: 14px 18px; }
+.hero-exp > div + div { border-left: 1px solid var(--border); }
+.hero-exp b { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+.hero-exp > div > span { color: var(--muted); font-size: .86rem; line-height: 1.4; }
+@media (max-width: 520px) {
+  .hero-exp { grid-template-columns: 1fr; }
+  .hero-exp > div + div { border-left: 0; border-top: 1px solid var(--border); }
+}
