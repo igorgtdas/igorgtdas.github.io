@@ -25,12 +25,12 @@ var PORTFOLIO_DATA = {
       stack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'pgvector', 'Redis', 'AWS', 'Terraform']
     },
     {
-      id: 'pitstop-connect',
+      id: 'pitstop-hub',
       team: true,
-      title: 'PitStop Connect',
-      image: 'assets/diagrams/connect.svg',
+      title: 'PitStop Hub',
+      image: 'assets/diagrams/hub.svg',
       alt: { pt: 'Diagrama do CRM omnichannel', en: 'Omnichannel CRM diagram' },
-      caseUrl: 'cases/pitstop-connect.html',
+      caseUrl: 'cases/pitstop-hub.html',
       summary: {
         pt: 'CRM omnichannel para oficinas, com atendimento por IA. Meu foco: a API de conversação e as integrações com o WhatsApp.',
         en: 'Omnichannel CRM for auto repair shops, with AI-first service. My focus: the conversation API and the WhatsApp integrations.'

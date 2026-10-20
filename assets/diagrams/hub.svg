@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" role="img" aria-labelledby="t d">
-  <title id="t">PitStop Connect — conversation backend</title>
+  <title id="t">PitStop Hub — conversation backend</title>
   <desc id="d">Channels (official WhatsApp Cloud API, WhatsApp QR sessions, Instagram and Messenger, webchat) reach a connector and the conversation API. Messages go through queues to a worker that routes to the AI agent first and to a human agent as fallback. Data is stored in PostgreSQL, Redis and S3.</desc>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a1a1aa"/></marker>
