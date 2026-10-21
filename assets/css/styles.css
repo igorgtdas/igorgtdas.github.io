@@ -397,7 +397,7 @@ table.infra { width: 100%; border-collapse: collapse; font-size: .88rem; min-wid
 }
 
 /* Destaque de experiência no hero */
-.hero-exp { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 680px; margin: -8px 0 32px; border: 1px solid var(--border); border-radius: var(--radius); }
+.hero-exp { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; max-width: 600px; margin: -8px 0 32px; border: 1px solid var(--border); border-radius: var(--radius); }
 .hero-exp > div { display: flex; flex-direction: column; gap: 2px; padding: 14px 18px; }
 .hero-exp > div + div { border-left: 1px solid var(--border); }
 .hero-exp b { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
